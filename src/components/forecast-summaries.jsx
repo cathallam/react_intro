@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import ForecastSummary from './forecast-summary';
 import '../styles/forecast-summaries.scss';
 
@@ -18,6 +18,10 @@ const ForecastSummaries = props => (
     }
   </div>
 );
+
+ForecastSummaries.propTypes = {
+  forecasts: PropTypes.array.isRequired,
+};
 
 export default ForecastSummaries;
 
