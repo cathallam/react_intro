@@ -12,11 +12,24 @@ class App extends React.Component {
     this.state = {
       selectedDate: this.props.forecasts[0].date,
     };
+    //
+    this.handleForecastSelect = this.handleForecastSelect.bind(this);
   }
+  // Receives a date as a parameter, and sets that date as the selected date in the component state.
+ 
+  handleForecastSelect(date) {
+    //The function gets passed a date, and we use the this.setState method to set that date on our state object.
+    this.setState({
+      selectedDate: date,
+    });
+  }
+  
   render() {
     const props = this.props;
-    const selectedForecast = props.forecasts.find
-    (forecast => forecast.date === this.state.selectedDate);
+    //return the forecast that matches the selected date
+    const selectedForecast = props.forecasts.find(
+      forecast => forecast.date === this.state.selectedDate
+    );
 
     return (
       <div className="forecast">
@@ -24,7 +37,7 @@ class App extends React.Component {
         city={props.location.city}
         country={props.location.country}
       />
-      <ForecastSummaries forecasts={props.forecasts} />
+      <ForecastSummaries forecasts={props.forecasts} onForecastSelect={this.handleForecastSelect} />
       <ForecastDetails forecast={selectedForecast} />
     </div>
     );

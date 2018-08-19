@@ -13,6 +13,7 @@ const ForecastSummaries = props => (
           description={forecast.description}
           icon={forecast.icon}
           temperature={forecast.temperature.max}
+          onSelect={props.onForecastSelect}
         />
       ))
     }
@@ -21,6 +22,7 @@ const ForecastSummaries = props => (
 
 ForecastSummaries.propTypes = {
   forecasts: PropTypes.array.isRequired,
+  onForecastSelect: PropTypes.func.isRequired
 };
 
 export default ForecastSummaries;
