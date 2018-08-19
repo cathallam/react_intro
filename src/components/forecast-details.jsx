@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-
+  
 const ForecastDetails = props => (
   <div className="forecast-details">
     <p>{moment(props.forecast.date).format('ddd Mo MMM')}</p>
